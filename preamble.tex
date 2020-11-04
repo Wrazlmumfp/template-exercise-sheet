@@ -1,0 +1,124 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%   Preamble   %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,twoside,11pt]{article}
+
+\usepackage[ngerman]{babel}             % Language german; replace ngerman by english when required
+\usepackage[T1]{fontenc}                % Better wort separation
+\usepackage[utf8]{inputenc}             % For äöüß etc.
+\usepackage{a4wide}						% Smaller margins
+\usepackage{enumerate}					% Better enumerate definition
+\usepackage{amsmath}                    % Makes everything better
+\usepackage{amssymb}                    % e. g. for \mathbb or \mathfrak
+\usepackage{dsfont}						% Needed for \mathds{1} for the indicator fct.
+\usepackage{xstring}					% Used in \Pot
+\usepackage[onehalfspacing]{setspace}	% Used in \insertion
+\usepackage{fancyhdr}					% Fancy Header
+\usepackage{lastpage} 					% Page Number in Footer
+\usepackage{listings}                   % For writing code
+
+
+%%%%%%%%%%%%%         Header         %%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+\fancyhead[LE,RO]{\AuthorName}
+\fancyhead[LO,RE]{\CourseName}
+\fancyhead[CO,CE]{\textbf{\SheetNumber}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+
+%%%%%%%%%%%%%         Footer         %%%%%%%%%%%%%%
+
+\cfoot{\thepage/\pageref{LastPage}}
+
+
+%%%%%%%%%%%%%    Special Commands    %%%%%%%%%%%%%%
+
+% indents a paragraph
+\newenvironment{insertion}
+	{\begin{list}{}
+		{\setlength{\leftmargin}{5mm} \setlength{\rightmargin}{5mm}}
+		\item[]
+	}
+	{\end{list}}
+
+% Some Shortcuts
+\newcommand{\Nat}{\mathbb{N}}
+\newcommand{\Integ}{\mathbb{Z}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Rat}{\mathbb{Q}}
+\newcommand{\Comp}{\mathbb{C}}
+\newcommand{\terms}{\mathbb{T}}
+\newcommand{\im}{\operatorname{Im}}     	
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Supp}{\operatorname{Supp}}
+\newcommand{\Ann}{\operatorname{Ann}}
+\newcommand{\HF}{\operatorname{HF}}
+\newcommand{\HP}{\operatorname{HP}}
+\newcommand{\HS}{\operatorname{HS}}
+\newcommand{\HN}{\operatorname{HN}}
+\newcommand{\hn}{\operatorname{hn}}
+\newcommand{\mult}{\operatorname{mult}}
+\newcommand{\LT}{\operatorname{LT}}
+\newcommand{\LM}{\operatorname{LM}}
+\newcommand{\IG}{\mathcal{I}_G}
+\newcommand{\MS}{\operatorname{MS}}
+\newcommand{\LC}{\operatorname{LC}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\NR}{\operatorname{NR}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\rey}{\varrho}
+\newcommand{\calA}{{\mathcal{A}}}
+\newcommand{\isom}{\cong}
+\newcommand{\calB}{{\mathcal{B}}}
+\newcommand{\calC}{{\mathcal{C}}}
+\newcommand{\calI}{{\mathcal{I}}}
+\newcommand{\Rel}{{\operatorname{Rel}}}
+\newcommand{\Mat}{{\operatorname{Mat}}}
+\newcommand{\tr}{^{\rm tr}}
+\newcommand{\trace}{{\rm trace}}
+\renewcommand{\det}{{\rm det}}
+\newcommand{\characteristic}{{\rm char}}
+\newcommand{\rewrite}[1]{{\stackrel{#1}{\longrightarrow}_s}}
+\newcommand{\rewriteequiv}[1]{{\stackrel{#1}{\longleftrightarrow}_s}}
+\newcommand{\reductionstep}[1]{{\stackrel{#1}{\longrightarrow}_{ss}}}
+
+%%%%%%%%%%%%%  Exercise Environments %%%%%%%%%%%%%%
+
+\newcounter{exercise}
+\setcounter{exercise}{1}
+
+% new command \subtask
+\newcommand{\subtask}{\item}
+\newcommand{\teilaufgabe}{\item}
+
+% Auto-numbering, subtask format optional
+% Example: \begin{exercise}[a)]
+\newenvironment{exercise}[1][a)]
+	{\textbf{Exercise \arabic{exercise}} \stepcounter{exercise}\begin{enumerate}[#1]{}}
+		{\end{enumerate}}
+
+% Auto-numbering, no subtasks
+% Example: \begin{exercise*}
+\newenvironment{exercise*}
+	{\textbf{Exercise \arabic{exercise}} \stepcounter{exercise}\par}{\ \newline}
+
+% Custom number, subtask format optional
+% Example: \begin{exercisecn}[a)]{1}
+\newenvironment{exercisecn}[2][a)]
+	{\textbf{Exercise #2}\begin{enumerate}[#1]{}}
+		{\end{enumerate}}
+
+% Custom Number, no subtasks
+% Example: \begin{exercisecn*}[1]
+\newenvironment{exercisecn*}[1][\arabic{exercise}\stepcounter{exercise}]
+	{\textbf{Exercise #1} \newline}{\ \newline}
+
+%%%%%%%%%%%%%        No Indents      %%%%%%%%%%%%%%
+
+\setlength{\parindent}{0mm}
