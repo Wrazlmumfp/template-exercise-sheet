@@ -89,6 +89,15 @@
 \newcommand{\rewrite}[1]{{\stackrel{#1}{\longrightarrow}_s}}
 \newcommand{\rewriteequiv}[1]{{\stackrel{#1}{\longleftrightarrow}_s}}
 \newcommand{\reductionstep}[1]{{\stackrel{#1}{\longrightarrow}_{ss}}}
+\newcommand{\colour}[1]{\color{#1}}
+
+% small matrices
+\newcommand{\mat}[1]{\begin{psmallmatrix}#1\end{psmallmatrix}}
+
+% font size
+\newcommand{\size}[1]{\fontsize{#1}{0}\selectfont{}}
+
+
 
 %%%%%%%%%%%%%  Exercise Environments %%%%%%%%%%%%%%
 
@@ -117,9 +126,9 @@
   {\end{enumerate}}
 
 % Custom Number, no subtasks
-% Example: \begin{exercisecn*}[1]
-\newenvironment{exercisecn*}[1][\arabic{exercise}\stepcounter{exercise}]
-  {\textbf{Exercise #1} \newline}{\ \newline}
+% Example: \begin{exercisecn*}{1}
+\newenvironment{exercisecn*}[2][\arabic{exercise}\stepcounter{exercise}]
+  {\textbf{Exercise #2} \newline}{\ \newline}
 
 %%%%%%%%%%%%%        No Indents      %%%%%%%%%%%%%%
 
