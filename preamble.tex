@@ -95,7 +95,7 @@
 \newcommand{\mat}[1]{\begin{psmallmatrix}#1\end{psmallmatrix}}
 
 % font size
-\newcommand{\size}[1]{\fontsize{#1}{0}\selectfont{}}
+\newcommand{\size}[1]{\fontsize{#1}{#1}\selectfont{}}
 
 
 
@@ -144,5 +144,6 @@
   upquote=true,
   columns=fullflexible,
   basicstyle=\ttfamily,
-  literate={*}{{\char42}}1 {-}{{\char45}}1 {^}{{\char94}}1
+  literate={*}{{\char42}}1 {-}{{\char45}}1 {^}{{\char94}}1,
+  breaklines=true
 }
