@@ -18,6 +18,7 @@
 \usepackage{fancyhdr}                   % Fancy Header
 \usepackage{lastpage}                   % Page Number in Footer
 \usepackage{listings}                   % For writing code
+\usepackage{xcolor}
 
 
 %%%%%%%%%%%%%         Header         %%%%%%%%%%%%%%
@@ -142,15 +143,42 @@
 \setlength{\parindent}{0mm}
 
 
-%%%%%%%%%%%  Set code font to \texttt  %%%%%%%%%%%%
+%%%%%%%%%%    Listing for CoCoA code    %%%%%%%%%%%
 
+\definecolor{altorange}{HTML}{F29300}
+\definecolor{codeblue}{rgb}{0.13,0.13,1}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95, 0.95, 0.92}
+
+\lstdefinelanguage{CoCoA}{
+    morekeywords={Alias, Block, Break, Ciao, Continue, Define, Describe, Do, Elif, Else, End, EndBlock, EndTry, EndDefine, EndFor, EndForeach, EndIf, EndPackage, EndRepeat, EndUsing, EndWhile, Eof, False, For, Foreach, Global, Help, If, In, IsIn, NewLine, Not, On, Or, Package, Print, PrintLn, Quit, Repeat, Record, Return, Skip, Source, Step, Then, Time, To, True, Unset, Until, use, Using, Var, While, QQ, ZZ, BOOL, DegLex, DegRevLex, DEVICE, ERROR, FUNCTION, IDEAL, INT, Lex, MAT, MODULE, NULL, Null, PANEL, POLY, PosTo, RAT, RATFUN, RING, STRING, TAGGED, ToPos, TYPE, MODULEELEM, Xel, ZMOD},
+    sensitive=false,
+    morecomment=[l]{//},
+    morecomment=[l]{--},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]"
+}
 \lstset{
-  basicstyle=\ttfamily,
-  columns=fullflexible,
-  literate={~} {$\sim$}{1},
-  upquote=true,
-  columns=fullflexible,
-  basicstyle=\ttfamily,
-  literate={*}{{\char42}}1 {-}{{\char45}}1 {^}{{\char94}}1,
-  breaklines=true
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegray},
+    keywordstyle=\color{codeblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    columns=fullflexible,
+    keepspaces=true,
+    language=CoCoA,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    xleftmargin=1cm,
+    xrightmargin=8mm
 }
